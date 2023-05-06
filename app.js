@@ -34,7 +34,9 @@ app.use(compression()); // Compress all routes
 
 // Set up mongoose connection
 mongoose.set('strictQuery', false);
-const mongoDB = 'mongodb+srv://rohitmolawade27:Rohit2706@local-library.cmflrtb.mongodb.net/?retryWrites=true&w=majority';
+const mongoDB_dev_uri = 'mongodb+srv://rohitmolawade27:Rohit2706@local-library.cmflrtb.mongodb.net/?retryWrites=true&w=majority';
+
+const mongoDB = process.env.MONGODB_URI || mongoDB_dev_uri;
 
 main().catch((err) => console.log(err));
 
